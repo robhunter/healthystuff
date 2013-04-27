@@ -1,0 +1,35 @@
+= form_tag("/activities", :method => "get", id: "activity-form") do
+
+  %div
+    Name:
+    %br
+    = text_field_tag(:name, "")
+    
+    %br
+    %br
+    
+    Description:
+    %br
+    = text_field_tag(:description, "")
+    
+    %br
+    %br
+    
+    Type:
+    %br
+    = select(:activity, :type, [["Meal", "meal"], ["Exercise", "exercise"]])
+    
+    %br
+    %br
+    
+    Date:
+    %br
+    = text_field_tag(:date, "4/27/2013") #it's a hackathon!
+    
+    = hidden_field_tag(:user_id, @user.id)
+
+  %div
+= button_tag "Add activity!", onclick: 'window.activities.create_activity("activity-form")'
+
+:javascript
+  $( "#date" ).datepicker()
