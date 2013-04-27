@@ -1,0 +1,3 @@
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :foursquare, "NXDFITS5F25KEKAHYOKXKVXM0OMVUG2TGJXF4I0OXIAYU5IE", "DUZS1DSDLOFXUZKRHQDTDFVPIZIIXMGUIBPTSJFA3SLOWJOU" 
+end
