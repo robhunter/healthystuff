@@ -27,6 +27,7 @@ class User
 
   field :fsq_at, type: String
   field :fsq_data, type: Hash
+  field :fsq_checkins, type: Hash
 
   ## Confirmable
   # field :confirmation_token,   :type => String

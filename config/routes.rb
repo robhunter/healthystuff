@@ -6,4 +6,5 @@ Healthystuff::Application.routes.draw do
   resources :groups, only: [:index, :show, :edit]
   match "/me", to: 'users#show'
   match "/auth/foursquare/callback", to: 'users#foursquare'
+  match "/users/checkin", to: "users#checkin"
 end
