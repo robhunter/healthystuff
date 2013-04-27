@@ -42,6 +42,7 @@ GEM
     builder (3.0.4)
     celluloid (0.13.0)
       timers (>= 1.0.0)
+    coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -84,6 +85,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.1)
     mime-types (1.23)
     mongoid (3.0.23)
       activemodel (~> 3.1)
@@ -111,6 +113,10 @@ GEM
     origin (1.1.0)
     orm_adapter (0.4.0)
     polyglot (0.3.3)
+    pry (0.9.12.1)
+      coderay (~> 1.0.5)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -151,6 +157,7 @@ GEM
       multi_json (~> 1)
       redis (~> 3)
       redis-namespace
+    slop (3.4.4)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -184,6 +191,7 @@ DEPENDENCIES
   less-rails
   mongoid (~> 3.0.0)
   omniauth-foursquare
+  pry
   rails (= 3.2.13)
   redis
   sass-rails (~> 3.2.3)
