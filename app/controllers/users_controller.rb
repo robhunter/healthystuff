@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   end
 
   def foursquare
-    binding.pry
-    fs = env['omniauth.auth']
-    token = fs['credentials']['token']
+    current_user.fsq_at = env['omniauth.auth']['credentials']['token']
+    current_user.fsq_data = env['omniauth.auth']
+    current_user.save!
 
-    render inline: "Sup"
+    redirect_to '/me'
   end
   
 end
