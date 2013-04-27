@@ -1,0 +1,26 @@
+
+
+Started GET "/" for 127.0.0.1 at 2013-04-27 15:36:47 -0400
+Processing by HomeController#index as HTML
+  Rendered home/index.html.haml within layouts/application (1.7ms)
+Compiled application.css  (0ms)  (pid 17606)
+Compiled jquery.js  (1ms)  (pid 17606)
+Compiled jquery_ujs.js  (0ms)  (pid 17606)
+Compiled application.js  (14ms)  (pid 17606)
+Completed 200 OK in 66ms (Views: 65.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-04-27 15:36:47 -0400
+Served asset /application.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-04-27 15:36:47 -0400
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-04-27 15:36:47 -0400
+Served asset /jquery_ujs.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-04-27 15:36:47 -0400
+Served asset /application.js - 200 OK (2ms)

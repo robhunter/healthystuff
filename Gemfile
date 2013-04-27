@@ -10,6 +10,7 @@ gem "mongoid", "~> 3.0.0"
 gem 'json'
 gem 'redis'
 gem 'sidekiq'
+gem 'haml'
 
 # Gems used only for assets and not required
 # in production environments by default.
