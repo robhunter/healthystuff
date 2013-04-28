@@ -14,6 +14,16 @@ class Apiv1 < Grape::API
       Company.with_image.limit(100).skip(page * 100).entries
     end
     
+    post ':slug/upvote' do
+      company = Company.where(slug:params[:slug]).first
+      company.vote('up')
+    end
+    
+    post ':slug/downvote' do
+      company = Company.where(slug:params[:slug]).first
+      company.vote('down')
+    end
+    
   end
 
 end

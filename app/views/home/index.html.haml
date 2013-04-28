@@ -1,9 +1,14 @@
+
 .row
-  = image_tag(@image)
+  = image_tag(@image, id:"company-image")
 .row
-  = render inline: @overview
+  #company-overview
+    = render inline: @overview
 .row
   .span6
-    %a{href:"/vote?company=#{@name}&type=up", class: "blue medium button"}Smash
+    %a{class: "blue medium button", id:"upvote"}Smash
   .span6
-    %a{href:"/vote?company=#{@name}&type=down", class: "blue medium button"}Crash
+    %a{class: "blue medium button", id:"downvote"}Crash
+    
+:javascript
+  window.smash_or_crash.createSmasher()
