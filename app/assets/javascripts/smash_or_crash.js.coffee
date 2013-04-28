@@ -19,6 +19,10 @@ class Smasher
     this.title = $('#company-title')
     this.image_link = $('#image-link')
     this.title_link = $('#title-link')
+    this.upvotes = $('#upvotes')
+    this.downvotes = $('#downvotes')
+    this.button_row = $('#button-row')
+    this.vote_row = $('#vote-row')
     this.upvote.bind('click', this.castUpvote)
     this.downvote.bind('click', this.castDownvote)
     this.get_more(true)
@@ -40,6 +44,8 @@ class Smasher
             slug:value.slug
             link:value.tc_homepage_url
             title:value.name
+            upvotes:value.upvotes
+            downvotes:value.downvotes
             })
         );
         if init
@@ -66,11 +72,16 @@ class Smasher
       this.loadCompany()
       console.log(this.pointer)
   loadCompany: () =>
+    console.log(this.company())
     this.image.attr('src', 'http://crunchbase.com/' + window.companies[this.pointer].image)
     this.overview.html(window.companies[this.pointer].overview)
     this.title.html(this.company().title)
     this.title_link.attr('href', this.company().link)
     this.image_link.attr('href', this.company().link)
+    this.upvotes.html('+' + this.company().upvotes)
+    this.downvotes.html('-' + this.company().downvotes)
+    this.vote_row.hide()
+    this.button_row.show()
   castUpvote: () =>
     $.ajax({
       url:"api/v1/companies/#{this.company().slug}/upvote"
@@ -78,7 +89,11 @@ class Smasher
       type: 'POST'
       success: (value) ->
         console.log(value)
+      
     })
+    this.upvotes.html('+' + (this.company().upvotes + 1))
+    this.vote_row.show()
+    this.button_row.hide()
   castDownvote: () =>
     $.ajax({
       url:"api/v1/companies/#{this.company().slug}/downvote"
@@ -86,5 +101,9 @@ class Smasher
       type: 'POST'
       success: (value) ->
         console.log(value)
+      
     })
+    this.downvotes.html('+' + (this.company().downvotes + 1))
+    this.vote_row.show()
+    this.button_row.hide()
     

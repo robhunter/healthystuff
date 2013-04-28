@@ -1,8 +1,15 @@
-.row
+.row#button-row
   .span6.button-container
     %a{class: "green medium button", id:"upvote"}Smash
   .span6.button-container
     %a{class: "red medium button", id:"downvote"}Crash
+.row#vote-row
+  .span6.upvotes
+    %h2#upvotes
+      +5
+  .span6.downvotes
+    %h2#downvotes
+      \-7
 .row
   .span6.logo-box.background-one
     %a#title-link
