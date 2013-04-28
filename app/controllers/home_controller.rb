@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
   
   def index
-    @image = "http://crunchbase.com/#{Company.first.image["available_sizes"].last.last}"
-    @overview = Company.first.overview 
+    company = Company.offset(rand(Company.count)).limit(1).first
+    @overview = company.overview || ""
+    @image = "http://crunchbase.com/#{company.image["available_sizes"].last.last}" rescue nil
+    @name = company.name
   end
   
 end

@@ -1,9 +1,11 @@
 .row
   = image_tag("crunch-smash.png")
 .row
+  = @name
+.row
   = image_tag(@image)
 .row
-  = render inline: (@overview)
+  = render inline: @overview
 .row
   .span6
     %a{href:"/me", class: "blue medium button"}Smash
