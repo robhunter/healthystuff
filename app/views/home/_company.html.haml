@@ -2,7 +2,10 @@
   .leader-logo
     %a{href:"#{company.tc_homepage_url}"}
       .img-wrapper
-        %img{src:"http://www.crunchbase.com/#{company.image["available_sizes"].last.last}"}
+        -if company.image["available_sizes"].last.last[0] == 'a'
+          %img{src:"http://www.crunchbase.com/#{company.image["available_sizes"].last.last}"}
+        -else
+          %img{src:company.image["available_sizes"].last.last}
   .leader-title
     %a{href:"#{company.tc_homepage_url}"}
       %h4= company.name
