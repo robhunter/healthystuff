@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   end
 
   def leaderboard
-    @companies = Company.desc(:score).limit(25)
+    @companies = Company.with_image.desc(:score).limit(25)
   end
 
   def about

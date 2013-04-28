@@ -10,8 +10,8 @@ class Apiv1 < Grape::API
   namespace :companies do
     
     get 'with_images' do
-      page = params[:page] || 0
-      Company.with_image.limit(100).skip(page * 100).entries
+      page = params[:page] || rand((Company.with_image.count - 100).floor)
+      Company.with_image.limit(100).skip(page).entries
     end
     
     post ':slug/upvote' do

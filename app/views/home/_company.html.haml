@@ -1,0 +1,15 @@
+.leader
+  .leader-logo
+    %a{href:"#{company.tc_homepage_url}"}
+      .img-wrapper
+        %img{src:"http://www.crunchbase.com/#{company.image["available_sizes"].last.last}"}
+  .leader-title
+    %a{href:"#{company.tc_homepage_url}"}
+      %h4= company.name
+    .stats
+      .upvotes
+        %h5= "+#{company.upvotes}"
+      .downvotes
+        %h5= "-#{company.downvotes}"
+  .leader-overview
+    = company.overview.html_safe

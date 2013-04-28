@@ -1,14 +1,15 @@
-
 .row
-  = image_tag(@image, id:"company-image")
-.row
-  #company-overview
-    = render inline: @overview
-.row
-  .span6
+  .span6.button-container
     %a{class: "blue medium button", id:"upvote"}Smash
-  .span6
+  .span6.button-container
     %a{class: "blue medium button", id:"downvote"}Crash
+.row
+  .span6.logo-box
+    = image_tag(@image, id:"company-image")
+  .span6
+    #company-overview
+      = render inline: @overview
+
     
 :javascript
   window.smash_or_crash.createSmasher()
