@@ -16,5 +16,8 @@ class HomeController < ApplicationController
   def leaderboard
     @companies = Company.desc(:score).limit(25)
   end
+
+  def about
+  end
   
 end

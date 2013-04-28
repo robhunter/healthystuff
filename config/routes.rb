@@ -9,5 +9,6 @@ Healthystuff::Application.routes.draw do
   match "/users/checkin", to: "users#checkin"
   match "/vote", to: 'home#vote'
   match "/leaderboard", to: 'home#leaderboard'
+  match "/about", to: 'home#about'
   mount Api => '/api'
 end

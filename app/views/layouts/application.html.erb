@@ -47,9 +47,8 @@
           <a class="brand" href="#">Crunch Smash</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Leaderboard", "/leaderboard"  %></li>
+              <li><%= link_to "About", "/about"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -60,6 +59,9 @@
 
       <%= bootstrap_flash %>
       <%= render '/layouts/notices'%>
+      <div class='row'>
+        <%= image_tag("crunch-smash.png") %>
+      </div>
       <%= yield %>
 
       <footer>
