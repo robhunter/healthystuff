@@ -9,10 +9,12 @@ class Company
   field :category_code, type: String
   field :image, type: Hash
   field :overview, type: String
-  field :upvotes, type: Integer
-  field :downvotes, type: Integer
+  field :upvotes, type: Integer, default: 0
+  field :downvotes, type: Integer, default: 0
   field :votes, type: Integer
   field :score, type: Float
+  field :slug, type: String
+  before_create :generate_slug!
   
   def self.populated
     where(:tc_crunchbase_url.ne => nil)
@@ -46,4 +48,9 @@ class Company
     self.save!
   end
 
+  
+  def generate_slug!
+    self.write_attribute("slug", self.name.downcase.gsub(/[^0-9a-z ]/i, '').gsub(/ /, '-'))
+  end
+  
 end
