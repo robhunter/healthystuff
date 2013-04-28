@@ -3,7 +3,7 @@ class CompanyGrabber
   def self.bootstrap_companies
     self.get_entities(123)
     Company.all.each do |company|
-      company.populate_info
+      company.populate_info rescue "#{company.name} has a stupid name"
     end
   end
   
