@@ -16,16 +16,19 @@ class Smasher
     this.overview = $('#company-overview')
     this.upvote = $('#upvote')
     this.downvote = $('#downvote')
+    this.title = $('#company-title')
+    this.image_link = $('#image-link')
+    this.title_link = $('#title-link')
     this.upvote.bind('click', this.castUpvote)
     this.downvote.bind('click', this.castDownvote)
-    this.get_more()
+    this.get_more(true)
     $(document).bind('keydown', this.onKeyPress)
-  get_more: () ->
+  get_more: (init) =>
     $.ajax({
       url:"api/v1/companies/with_images"
       dataType: 'json'
       type: 'GET'
-      success: (value) ->
+      success: (value) =>
         console.log(value)
         $.each(value, (index, value) -> 
           window.test = value
@@ -35,8 +38,12 @@ class Smasher
             image:image
             overview:overview
             slug:value.slug
+            link:value.tc_homepage_url
+            title:value.name
             })
         );
+        if init
+          this.loadCompany()
     })
   company: () =>
     window.companies[this.pointer]
@@ -61,6 +68,9 @@ class Smasher
   loadCompany: () =>
     this.image.attr('src', 'http://crunchbase.com/' + window.companies[this.pointer].image)
     this.overview.html(window.companies[this.pointer].overview)
+    this.title.html(this.company().title)
+    this.title_link.attr('href', this.company().link)
+    this.image_link.attr('href', this.company().link)
   castUpvote: () =>
     $.ajax({
       url:"api/v1/companies/#{this.company().slug}/upvote"
