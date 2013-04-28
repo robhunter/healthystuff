@@ -11,6 +11,8 @@ class Company
   field :overview, type: String
   field :upvotes, type: Integer
   field :downvotes, type: Integer
+  field :votes, type: Integer
+  field :score, type: Float
   
   def self.populated
     where(:tc_crunchbase_url.ne => nil)
@@ -34,5 +36,14 @@ class Company
   def my_info
     response = HTTParty.get("http://api.crunchbase.com/v/1/company/#{URI.encode(name)}.js?api_key=#{Rails.configuration.crunchbase_key}")
   end
-  
+
+  def vote(type)
+    self.inc("#{type}votes", 1)
+    self.inc("votes",1)
+    score = self.votes || 0 - self.downvotes || 0
+    score = 0 if score < 0
+    self.score= score
+    self.save!
+  end
+
 end

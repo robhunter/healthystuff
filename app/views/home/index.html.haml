@@ -6,6 +6,6 @@
   = render inline: @overview
 .row
   .span6
-    %a{href:"/me", class: "blue medium button"}Smash
+    %a{href:"/vote?company=#{@name}&type=up", class: "blue medium button"}Smash
   .span6
-    %a{href:"/me", class: "blue medium button"}Crash
+    %a{href:"/vote?company=#{@name}&type=down", class: "blue medium button"}Crash
