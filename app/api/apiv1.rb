@@ -7,18 +7,11 @@ class Apiv1 < Grape::API
 
   end
 
-  namespace :activities do
+  namespace :companies do
     
-    post ':parent_id/create' do
-      parent = User.where(id:params[:parent_id]).first || Group.where(id:params[:parent_id]).first
-      activity = parent.activities.create(name:params[:name], 
-        type:params[:type], 
-        time:params[:datetime].to_datetime,
-        name:params[:name],
-        description:params[:description],
-      )
-      parent.save
-      activity.to_json
+    get 'with_images' do
+      page = params[:page] || 0
+      Company.with_image.limit(100).skip(page * 100).entries
     end
     
   end

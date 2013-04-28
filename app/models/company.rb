@@ -16,6 +16,10 @@ class Company
     where(:tc_crunchbase_url.ne => nil)
   end
   
+  def self.with_image
+    where(:image.ne => nil)
+  end
+  
   def populate_info
     my_info.each do |key, value|
       if ["url", "image", "overview"].include?(key)
