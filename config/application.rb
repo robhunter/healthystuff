@@ -68,5 +68,7 @@ module Healthystuff
     # Devise
     config.action_mailer.default_url_options = { :host => 'www.healthystuff.com' }
     config.assets.initialize_on_precompile = false
+    
+    config.crunchbase_key = "gz65rzyvpxhmnvmg88ah6hte"
   end
 end
